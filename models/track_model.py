@@ -7,3 +7,8 @@ class TrackModel(BaseModel):
     artist:str
     releaseDate:date
     description:str | None = None
+
+class TrackUpdateModel(BaseModel):
+    title:str
+    artist:str
+    description:str | None = None

@@ -1,2 +1,3 @@
 from .track_model import TrackModel as TrackModel
-__all__:list[str] = ["TrackModel"]
+from .track_model import TrackUpdateModel as TrackUpdateModel
+__all__:list[str] = ["TrackModel","TrackUpdateModel"]
