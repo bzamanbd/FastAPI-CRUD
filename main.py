@@ -1,5 +1,6 @@
 from fastapi import FastAPI
-from routers import track_router, playlist_router
+# from routers import track_router, playlist_router
+from routers import *
 app = FastAPI()
 
 
@@ -7,5 +8,5 @@ app = FastAPI()
 def root()->dict[str, str]:
     return {"msg":"Hello route"}
 
-app.include_router(track_router)
-app.include_router(playlist_router)
+app.include_router(TracksRouter)
+app.include_router(PlaylistRouter)
