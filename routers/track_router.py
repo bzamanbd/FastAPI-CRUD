@@ -11,16 +11,21 @@ async def get_tracks()->dict[str,list[TrackModel]]:
         "tracks" : tracks
     }
 
-@track_router.get("/tracks/{id}", tags=["Tracks"] )
-async def get_track_by_id(id:int):
+@track_router.get("/tracks/{track_id}", tags=["Tracks"] )
+async def get_track_by_id(track_id:int):
+     for track in tracks:
+            if track.id == track_id:
+                return{ "track":track}
+            
+@track_router.delete("/tracks/{track_id}", tags=["Tracks"] )
+async def delete_track(track_id:int):
     if tracks == []:
         return{"Message":"No tracks available"}
     else:
         for track in tracks:
-            if id == track.id:
-                return{ "track":track}
-            else:
-                return{ "Message":"Track not found as you request"}
+            if track.id == track_id:
+                tracks.remove(track)
+                return{ "Message": f"{track.title} is deleted"}
     
    
 
